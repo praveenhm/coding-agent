@@ -37,12 +37,8 @@ First, let's get our project environment ready. Open your terminal:
 mkdir python-gemini-agent
 cd python-gemini-agent
 
-# Create a virtual environment (recommended)
-python -m venv venv
-source venv/bin/activate # On Windows use `venv\Scripts\activate`
-
-# Create main file and requirements file
-touch main.py requirements.txt
+# Create main file and pyproject.toml
+touch main.py pyproject.toml
 
 # Create a placeholder for your API key (or set it directly)
 echo "export GOOGLE_API_KEY='YOUR_API_KEY_HERE'" > .envrc # Optional: if you use direnv
@@ -50,17 +46,40 @@ echo "export GOOGLE_API_KEY='YOUR_API_KEY_HERE'" > .envrc # Optional: if you use
 # Or set it directly in your shell: export GOOGLE_API_KEY='YOUR_API_KEY_HERE'
 ```
 
-Now, let's install the necessary library: the Google Generative AI SDK. Add this line to `requirements.txt`:
+Now, let's define the necessary libraries in `pyproject.toml`. Add this content:
 
-```text
-# requirements.txt
-google-genai
+```toml
+# pyproject.toml
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "python-gemini-agent-tutorial"
+version = "0.0.1"
+description = "A simple Gemini agent tutorial project."
+requires-python = ">=3.9" # Example requirement
+dependencies = [
+    "google-genai",
+    # Add other dependencies here as needed
+]
+
+[project.optional-dependencies]
+dev = [
+    # Add development dependencies like pytest here
+]
 ```
 
-And install it:
+Set up a virtual environment and install dependencies using UV:
+(Assumes you have [UV](https://github.com/astral-sh/uv) installed: `pip install uv`)
 
 ```bash
-pip install google-genai
+# Create and activate a virtual environment
+uv venv
+source .venv/bin/activate # Or `.venv\Scripts\activate` on Windows
+
+# Install dependencies from pyproject.toml
+uv pip install .
 ```
 
 > **Note:** The previous SDK (`google-generativeai`) is deprecated. Use `google-genai` for all new projects. See [Gemini API Libraries](https://ai.google.dev/gemini-api/docs/libraries) for details.
@@ -740,7 +759,7 @@ For running potentially complex or less trusted commands (like test suites or co
 **Prerequisites:**
 
 *   **Docker Desktop (or daemon):** Must be installed and running on your system.
-*   **`docker` Python Library:** Add `docker = "^7.0.0"` (or latest) to your `pyproject.toml` and run `poetry install`.
+*   **`docker` Python Library:** Add `"docker>=7.1.0,<8.0.0"` to the `[project].dependencies` list in your `pyproject.toml` and run `uv pip install .`.
 
 **1. Checking Docker Status**
 

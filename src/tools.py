@@ -9,14 +9,14 @@ import feedparser
 import re
 from datetime import datetime
 from zoneinfo import ZoneInfo
-from src.find_arxiv_papers import build_query, fetch_entries # build_query now in find_arxiv_papers.py
+from src.find_arxiv_papers import build_query, fetch_entries # Corrected import
 from google import genai # Current import pattern
 from google.genai import types # Current import pattern
 import time # Added import
 import asyncio
 from pydantic import SecretStr
 from langchain_google_genai import ChatGoogleGenerativeAI
-from src.browser_use import setup_browser, agent_loop
+from src.browser_as import setup_browser, agent_loop
 
 # --- Helper Functions ---
 def _check_docker_running() -> tuple[bool, docker.DockerClient | None, str]:

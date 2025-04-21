@@ -29,15 +29,22 @@ The agent can:
 
 1.  **Clone the repository:**
     ```bash
-    # Make sure you have the code, e.g., by downloading a zip file
-    # git clone https://github.com/voxmenthe/coding-agent.git # This line is removed
+    # Make sure you have the code, e.g., by cloning or downloading a zip file
+    git clone git@github.com:praveenhm/coding-agent.git
     cd coding-agent
     ```
-2.  **Set up a virtual environment and install dependencies:**
+2.  **Set up a virtual environment and install dependencies using UV:**
+    (Assumes you have [UV](https://github.com/astral-sh/uv) installed: `pip install uv`)
     ```bash
-    python -m venv <your-env-name>
-    source <your-env-name>/bin/activate
-    sh project_setup.sh
+    # Create and activate a virtual environment
+    uv venv
+    source .venv/bin/activate # Or `.venv\Scripts\activate` on Windows
+
+    # Install dependencies from pyproject.toml
+    uv pip install .
+
+    # (Optional) Install development dependencies
+    uv pip install .[dev]
     ```
 
 3.  **Set up API Key:**
@@ -56,16 +63,14 @@ The agent can:
 
 ## ▶️ Running the Agent
 
-Install the package locally and run the CLI from anywhere:
+Ensure your virtual environment is active.
 
-From the root directory of the project
+Run the agent as a module:
 ```bash
-pip install -e .
+python -m src.main
 ```
 
-Run the agent
-```bash
-coding-agent
+(Note: Using `python -m src.main` ensures Python treats `src` as a package, correctly handling absolute imports like `from src.tools import ...`.)
 
 ## 📝 Notes
 - The agent operates relative to the directory it was started from.
