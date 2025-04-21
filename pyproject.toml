@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "coding-agent"
-version = "0.0.1"
+version = "0.0.2"
 description = "Coding Agent"
 authors = [
     { name = "Praveen M", email = "praveenhm@yahoo.com" }
