@@ -1,9 +1,10 @@
 # 🤖 Gemini Coding Agent
 
+**Deepwiki doc**<https://deepwiki.com/praveenhm/coding-agent>
+
 Building a code-editing agent is simpler than it seems—it’s mainly a loop with an LLM and enough tokens. With less than 400 lines of mostly boilerplate code, we can create a small but impressive agent.
 
 ---
-Answer from Perplexity: pplx.ai/share
 This project implements a Python-based interactive coding agent powered by Google's Gemini models (using the newer `google-genai` SDK).
 
 The agent can:
