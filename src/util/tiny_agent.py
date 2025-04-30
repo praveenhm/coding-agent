@@ -1,4 +1,14 @@
 """
+It is fairly simple, but still quite powerful: MCP is a standard API to expose sets of Tools that 
+can be hooked to LLMs.
+
+But while doing that, came my second realization:
+
+Once you have a MCP Client, an Agent is literally just a while loop on top of it. 🤯
+"""
+
+
+"""
 1. Make sure you have `uv` install. (e.g. `brew install uv`)
 2. Setup Python venv `uv venv && source .venv/bin/activate`
 3. Setup the model API key (e.g. `export ANTHROPIC_API_KEY=<your_api_key>`)
