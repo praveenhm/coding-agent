@@ -27,7 +27,7 @@ def parse_args():
         help='End date in YYYY-MM-DD format'
     )
     parser.add_argument(
-        '--keywords', nargs='+', required=True,
+        '--keywords', nargs='+', required=True,    
         help='Keywords to search for in title or abstract'
     )
     parser.add_argument(
