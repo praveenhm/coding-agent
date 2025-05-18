@@ -1,3 +1,4 @@
+#### coding 
 o3 → PRD
 Gemini 2.5 Pro → execution plan
 Cursor + Gemini 2.5 Pro MAX/Sonnet 3.7 MAX → code
