@@ -10,4 +10,3 @@
 | o3/Gemini 2.5 Pro           | Debug                                       | Debugging               |
 
 ---
-Answer from Perplexity: pplx.ai/share
